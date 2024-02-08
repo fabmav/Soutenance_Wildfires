@@ -1,7 +1,6 @@
 import streamlit as st
 import pandas as pd 
 import numpy as np
-import seaborn as sn
 df=pd.read_csv(r"C:\Users\isanm\Projet Professionnel\Formations\Data Analyste\WildFires\Data PC NMX\wildfire_base_clean.csv")
 st.title("Analyse des feux de forêts aux USA")
 st.sidebar.title("Feux de forêts aux USA")
