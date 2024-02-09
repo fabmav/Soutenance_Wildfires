@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sn
-url="https://drive.google.com/file/d/10R41W-YfpWcFoc-D-PvKWmtGuayjWxZB/view?usp=sharing"
+url="https://drive.google.com/uc?export=download&id=10R41W-YfpWcFoc-D-PvKWmtGuayjWxZB"
 df=pd.read_csv(url)
 st.title("Analyse des feux de forêts aux USA")
 st.sidebar.title("Feux de forêts aux USA")
