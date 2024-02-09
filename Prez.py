@@ -17,7 +17,6 @@ if page == pages[0] :
     st.divider()
     st.image("SweetCrk-Milepost2Fire-Marcus-Kauffman.jpg")
     st.write("Statistiques de la colonne 'taille_feu':")
-    st.write("Moyenne:", df["taille_feu"].mean())
 if page == pages[1] :
     st.write("## Préparation des données : complétude des données")
 st.sidebar.header("L'équipe")
