@@ -16,7 +16,8 @@ if page == pages[0] :
     st.write("https://www.fs.usda.gov/rds/archive/catalog/RDS-2013-0009.6")
     st.divider()
     st.image("SweetCrk-Milepost2Fire-Marcus-Kauffman.jpg")
-    st.dataframe(df.loc[:, ["taille_feu"]].describe())
+    st.write("Statistiques de la colonne 'taille_feu':")
+    st.write("Moyenne:", df["taille_feu"].mean())
 if page == pages[1] :
     st.write("## Préparation des données : complétude des données")
 st.sidebar.header("L'équipe")
