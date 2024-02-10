@@ -3,8 +3,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sn
-url="https://drive.google.com/uc?export=download&id=10R41W-YfpWcFoc-D-PvKWmtGuayjWxZB"
-df=pd.read_csv(url)
+df=pd.read_csv(r"C:\Users\isanm\Projet Professionnel\Formations\Data Analyste\WildFires\Soutenance Projet\Soutenance_Wildfires\wildfire_base_clean.csv")
 st.title("Analyse des feux de forêts aux USA")
 st.sidebar.title("Feux de forêts aux USA")
 st.sidebar.header("Déroulé du projet")
@@ -17,6 +16,7 @@ if page == pages[0] :
     st.divider()
     st.image("SweetCrk-Milepost2Fire-Marcus-Kauffman.jpg")
     st.write("Statistiques de la colonne 'taille_feu':")
+    st.dataframe(df.taille_feu.describe())
 if page == pages[1] :
     st.write("## Préparation des données : complétude des données")
 st.sidebar.header("L'équipe")
