@@ -20,4 +20,6 @@ if page == pages[0] :
 if page == pages[1] :
     st.write("## Préparation des données : complétude des données")
 if page==pages[4]:
-    st.write("## Modélisation temporelle avec Prophet"
+    st.write("## Modélisation temporelle avec Prophet")
+st.sidebar.header("L'équipe")
+
