@@ -13,7 +13,7 @@ if page == pages[0] :
     st.divider()
     st.write("https://www.fs.usda.gov/rds/archive/catalog/RDS-2013-0009.6")
     st.divider()
-    st.image("https://raw.githubusercontent.com/NathisaMx/Soutenance_Wildfires/main/SweetCrk-Milepost2Fire-Marcus-Kauffman.jpg")
+    st.image("https://raw.githubusercontent.com/NathisaMx/Soutenance_Wildfires/blob/main/SweetCrk-Milepost2Fire-Marcus-Kauffman.jpg")
 if page == pages[1] :
     st.write("## Préparation des données : complétude des données")
 if page==pages[4]:
