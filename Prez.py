@@ -24,7 +24,6 @@ pages=["1a.Compréhension du jeu de données", "1b.Volumétrie du jeu de donnée
 page = st.sidebar.radio("                 Cochez la page à afficher", pages)
 
 if page == pages[0] :
-    st.write("## Présentation du jeu de données : première exploration")
     st.write("## Compréhension du jeu de données : première exploration")
     st.divider()
     st.write("https://www.fs.usda.gov/rds/archive/catalog/RDS-2013-0009.6")
@@ -33,9 +32,6 @@ if page == pages[0] :
 
 if page == pages[1] :
     st.write("## Préparation des données : complétude des données")
-if page == pages[3] : 
-    st.write('## Classification')
-    st.write("## Volumétrie du jeu de données")
     st.write('###Titre')
     st.write('blablabla')
     st.divider()
@@ -51,7 +47,6 @@ if page == pages[3] :
     st.divider()
 if page == pages[4] :
     st.write("## Statistique")
-    st.write('### La dichotomie des feux')
     st.write('Nous pouvons observer dans le jeu de données, 2 « tendances », avec d’un côté les feux nombreux, de petite taille  avec une cause humaine, et de l’autre les feux plus rares, de taille importante avec une cause naturelle.')
     st.write("Cette dichotomie peut s'observer avec une série de double graphiques sur une même variable :")
     st.write('le premier représente la variable en % du nombre de feux, le second en % de la surface')
@@ -82,6 +77,9 @@ if page == pages[6] :
 
 if page == pages[7] : 
     st.write('## Modèle de classification')
+    st.write('###Titre')
+    st.write('blablabla')
+    st.divider()
 
 if page == pages[8] :
     st.write("## Modélisation temporelle avec Prophet")
