@@ -77,8 +77,15 @@ if page == pages[6] :
 
 if page == pages[7] : 
     st.write('## Modèle de classification')
-    st.write('###Titre')
-    st.write('blablabla')
+    st.write('### LogisticRegression')
+    st.write('score sur le jeu de test : 0.6471896781847842')
+    st.write('score sur le jeu de train: 0.6525264009985726')
+    st.write('### RandomForestClassifier')
+    st.write('score sur le jeu de test : ')
+    st.write('score sur le jeu de train: ')
+    st.write('### DecisionTreeClassifier')
+    st.write('score sur le jeu de test : 0.5963221118196649')
+    st.write('score sur le jeu de train: 0.9997713664254686')
     st.divider()
 
 if page == pages[8] :
