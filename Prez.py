@@ -140,21 +140,21 @@ if page == pages[8] :
     st.write('On rejette H0 : Il y a un effet statistique significatif de la végétation sur la taille des feux')
 
     st.write('### ANOVA : Test de Kruskal-Wallis (Cause & Taille des feux')
-    st.write('H0 : Il n'y a pas d'effet significatif de la cause sur la Taille des feux')
+    st.write("H0 : Il n'y a pas d'effet significatif de la cause sur la Taille des feux")
     col1, col2 = st.columns(2)
     col1.metric("KruskalResult(statistic)", "29011.246268456314")
     col2.metric("pvalue", "0.0")
     st.write('On rejette H0 : la cause des feux semble bien avoir un impact significatif sur la taille des feux : cas des causes naturelles en majorité dans le Sud Ouest et Nord Ouest')
 
     st.write('### Corrélation : Test de Pearson (Précipitation moy. mens. & Taille des feux)')
-    st.write('H0 : Il n'y a pas de corrélation entre la précipitation et la Taille des feux')
+    st.write("H0 : Il n'y a pas de corrélation entre la précipitation et la Taille des feux")
     col1, col2 = st.columns(2)
     col1.metric("Corrélation de Pearson(précipitation moy.mens.)", "-0.02047855970785961")
     col2.metric("pvalue", "3.49452e-207")
     st.write("On rejette H0 : corrélation statistiquement significative entre Précipitation moy. mens. et Taille des feux, mais une corrélation négative très faible et proche de 0 (-0,02)")
 
     st.write('### Corrélation : Test de Spearman (Précipitation moy. mens. & Taille des feux)')
-    st.write('H0 : Il n'existe pas de relation linéaire entre la précipitation et la Taille des feux')
+    st.write("H0 : Il n'existe pas de relation linéaire entre la précipitation et la Taille des feux")
     col1, col2 = st.columns(2)
     col1.metric("Corrélation de Spearman", "0.15550443118114127")
     col2.metric("pvalue", "0.0")
@@ -162,7 +162,7 @@ if page == pages[8] :
     st.image("Relation_Precip&TailleFeux.png")
 
     st.write('### Corrélation : Test de Pearson (Température moy. mens. & Taille des feux')
-    st.write('H0 : Il n'y a pas de corrélation entre la Température moy.mens. et la Taille des feux')
+    st.write("H0 : Il n'y a pas de corrélation entre la Température moy.mens. et la Taille des feux")
     col1, col2 = st.columns(2)
     col1.metric("Corrélation de Pearson(température moy.mens.)", "0.011750792216244654")
     col2.metric("pvalue", "1.61714208e-69")
@@ -170,7 +170,7 @@ if page == pages[8] :
     
 
     st.write('### Corrélation : Test de Spearman (Température moy. mens. & Taille des feux)')
-    st.write('H0 : Il n'existe pas de relation linéaire entre la Température et la Taille des feux')
+    st.write("H0 : Il n'existe pas de relation linéaire entre la Température et la Taille des feux")
     col1, col2 = st.columns(2)
     col1.metric("Corrélation de Spearman", "-0.04421683488823663")
     col2.metric("pvalue", "0.0")
