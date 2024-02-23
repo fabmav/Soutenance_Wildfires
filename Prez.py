@@ -133,7 +133,7 @@ if page == pages[7] :
 if page == pages[8] :
     st.write('## Testes Statistiques')
     st.write('### ANOVA : Test de Kruskal-Wallis (Végétation régionale & Taille des feux)')
-    st.write('H0 : Il n'y a pas d'effet significatif de la végétation sur la Taille des feux')
+    st.write("H0 : Il n'y a pas d'effet significatif de la végétation sur la Taille des feux")
     col1, col2 = st.columns(2)
     col1.metric("KruskalResult(statistic)", "97811.02482749475")
     col2.metric("pvalue", "0.0")
