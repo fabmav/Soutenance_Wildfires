@@ -96,10 +96,10 @@ if page == pages[7] :
     col2.metric("Score X_train", "0.9997713664254686")
 
     st.write('Classification Report & Matrice de Confusion du RandomForestClassifier')
-    st.image("MatConf_ClassReport-RF_1.png")
+    st.image("Matrice de confusion et Classification Report.png")
 
     st.write('Features Importances du RandomForestClassifier (20 premières fonctionnalités)')
-    st.image("Feat_Importance_RF_1.png")
+    st.image("FeatImportance.png")
 
     st.write('#### Ajustement des hyperparamètres du RandomForestClassifier')   
     col1, col2, col3, col4 = st.columns(4)
@@ -113,13 +113,16 @@ if page == pages[7] :
     st.write("L'optimisation des hyperparamètres a contribué à améliorer la performance du RandomForest par rapport à ses paramètres par défaut. Il semble mieux généraliser aux données non vues dans l'ensemble de test.")
        
     st.write('Classification Report & Matrice de Confusion du RandomForestClassifier aprés ajustement des hyperparaètres')
-    st.image("MatConf_ClassReport-RF_2(optimisation).png")
+    st.image("Matrice Confusion et Classification Report après optimisation.png")
     st.write('Le modèle semble bien performant pour les classes A et B, mais a des difficultés avec les autres classes')
     st.write('Défis potentiels dans la classification des classes moins fréquentes ou moins bien représentées.')
-    st.image("DistributionClasse_avant_prediction.png")  
-    st.image("DistributiClassePrédites_RF.png") 
+    st.write("Rappel sur la distribution des classes de feu")
+    st.image("DistNormalClass.png")  
+    st.write("La distribution des classes prédite par le RandomForestClassifier")
+    st.image("Distribution des classes predites.png") 
     st.write('Les classes moins fréquentes (F et G) présentent des difficultés plus importantes pour le modèle.')
-    st.image("Valeurs_Predites_RF.png")
+    st.write('Quelques prédictions du RandomForestClassifier')
+    st.image("Tableau des valeurs réelles et prédites.png")
 
     st.write('## Autres modèles testés')
     col1, col2, col3 = st.columns(3)
@@ -140,29 +143,30 @@ if page == pages[8] :
     col1, col2 = st.columns(2)
     col1.metric("KruskalResult(statistic)", "97811.02482749475")
     col2.metric("pvalue", "0.0")
-    st.write('On rejette H0 : Il y a un effet statistique significatif de la végétation sur la taille des feux')
+    st.write("On rejette H0 : Il y a un effet statistique significatif de la végétation sur la taille des feux")
 
     st.write('### ANOVA : Test de Kruskal-Wallis (Cause & Taille des feux')
     st.write("H0 : Il n'y a pas d'effet significatif de la cause sur la Taille des feux")
     col1, col2 = st.columns(2)
     col1.metric("KruskalResult(statistic)", "29011.246268456314")
     col2.metric("pvalue", "0.0")
-    st.write('On rejette H0 : la cause des feux semble bien avoir un impact significatif sur la taille des feux : cas des causes naturelles en majorité dans le Sud Ouest et Nord Ouest')
+    st.write("On rejette H0 : la cause des feux semble bien avoir un impact significatif sur la taille des feux : cas des causes naturelles en majorité dans le Sud Ouest et Nord Ouest")
 
     st.write('### Corrélation : Test de Pearson (Précipitation moy. mens. & Taille des feux)')
-    st.write("H0 : Il n'y a pas de corrélation entre la précipitation et la Taille des feux")
+    st.write("H0 : Il n'y a pas de corrélation significative entre la précipitation et la Taille des feux")
     col1, col2 = st.columns(2)
     col1.metric("Corrélation de Pearson(précipitation moy.mens.)", "-0.02047855970785961")
     col2.metric("pvalue", "3.49452e-207")
     st.write("On rejette H0 : corrélation statistiquement significative entre Précipitation moy. mens. et Taille des feux, mais une corrélation négative très faible et proche de 0 (-0,02)")
 
     st.write('### Corrélation : Test de Spearman (Précipitation moy. mens. & Taille des feux)')
-    st.write("H0 : Il n'existe pas de relation linéaire entre la précipitation et la Taille des feux")
+    st.write("H0 : Il n'existe pas de relation monotone significative entre la précipitation et la Taille des feux")
     col1, col2 = st.columns(2)
     col1.metric("Corrélation de Spearman", "0.15550443118114127")
     col2.metric("pvalue", "0.0")
     st.write("On rejette H0 : Le test de Spearman confirme qu’il existe bien une relation statistique significative entre ces 2 variables")
-    st.image("Relation_Precip&TailleFeux.png")
+    st.image("Relation entre precipitation et taille des feux.png")
+    st.image("Correlation entre preicipitation et taille feu.png")
 
     st.write('### Corrélation : Test de Pearson (Température moy. mens. & Taille des feux')
     st.write("H0 : Il n'y a pas de corrélation entre la Température moy.mens. et la Taille des feux")
@@ -173,12 +177,13 @@ if page == pages[8] :
     
 
     st.write('### Corrélation : Test de Spearman (Température moy. mens. & Taille des feux)')
-    st.write("H0 : Il n'existe pas de relation linéaire entre la Température et la Taille des feux")
+    st.write("H0 : Il n'existe pas de relation monotone significative entre la Température et la Taille des feux")
     col1, col2 = st.columns(2)
     col1.metric("Corrélation de Spearman", "-0.04421683488823663")
     col2.metric("pvalue", "0.0")
     st.write("On rejette H0 : Le test de Spearman confirme le rejet de notre hypothèse nulle selon laquelle il n’y a pas de corrélation entre ces 2 variables")
-    st.image("Relation_Temp&TailleFeu.png")
+    st.image("Relation entre température et taille des feux.png")
+    st.image("Correlation entre temperature et taille feu.png")
 
     st.write("Plusieurs facteurs peuvent expliquer la taille des incendies (végétation, cause, précipitation moyenne, température")
 
