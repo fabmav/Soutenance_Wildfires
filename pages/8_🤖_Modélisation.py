@@ -10,106 +10,130 @@ if page == pages[0] :
     st.write('## Modèle de classification')
     tab1, tab2= st.tabs(["Modèles de classification","Tests Statistiques"])
     with tab1:
-        st.write('### LogisticRegression')
-        col1, col2 = st.columns(2)
-        col1.metric("Score X_test", "0.6471896781847842")
-        col2.metric("Score X_train", "0.6525264009985726")
+         # Boutons pour chaque modèle
+        selected_model = st.radio("Sélectionnez un modèle", ["LogisticRegression", "DecisionTreeClassifier", "RandomForestClassifier", "SVM", "Gradient Boosting", "knn"])
 
-        st.write('### RandomForestClassifier')
-        col1, col2 = st.columns(2)
-        col1.metric("Score X_test", "0.6554204360077117")
-        col2.metric("Score X_train", "0.9997342907106797")
+        if selected_model == "LogisticRegression":
+            col1, col2 = st.columns(2)
+            col1.metric("Score X_test", "0.6471896781847842")
+            col2.metric("Score X_train", "0.6525264009985726")
+            # Ajoutez les autres métriques spécifiques à LogisticRegression ici
+    
+        elif selected_model == "DecisionTreeClassifier":
+            col1, col2 = st.columns(2)
+            col1.metric("Score X_test", "0.5963221118196649")
+            col2.metric("Score X_train", "0.9997713664254686")
+            # Ajoutez les autres métriques spécifiques à DecisionTreeClassifier ici
+    
+        elif selected_model == "RandomForestClassifier":
+            col1, col2 = st.columns(2)
+            col1.metric("Score X_test", "0.6554204360077117")
+            col2.metric("Score X_train", "0.9997342907106797")
+            
+            # Matrice de confusion et Classification Report
+            st.write('Classification Report & Matrice de Confusion du RandomForestClassifier :')
+            st.image("Matrice de confusion et Classification Report.png")
+    
+            # Features Importances
+            st.write('Features Importances du RandomForestClassifier (20 premières fonctionnalités) :')
+            st.image("FeatImportance.png")
+    
+            # Ajustement des hyperparamètres
+            st.write('#### Ajustement des hyperparamètres du RandomForestClassifier :')   
+            col1, col2, col3, col4 = st.columns(4)
+            col1.metric("max_depth", "None")
+            col2.metric("min_samples_leaf", "1")
+            col3.metric("min_samples_split", "10")
+            col4.metric("n_estimators", "200")
+               
+            st.metric("Score X_test", "0.6778140293637847")
+            st.write("Le modèle RandomForest performe mieux sans limitation de la profondeur des arbres.")
+            st.write("L'optimisation des hyperparamètres a contribué à améliorer la performance du RandomForest par rapport à ses paramètres par défaut. Il semble mieux généraliser aux données non vues dans l'ensemble de test.")
+               
+            st.write('Classification Report & Matrice de Confusion du RandomForestClassifier après ajustement des hyperparamètres :')
+            st.image("Matrice Confusion et Classification Report après optimisation.png")
+            st.write('Le modèle semble bien performant pour les classes A et B, mais a des difficultés avec les autres classes.')
+            st.write('Défis potentiels dans la classification des classes moins fréquentes ou moins bien représentées.')
+            st.write("Rappel sur la distribution des classes de feu :")
+            st.image("DistNormalClass.png")  
+            st.write("La distribution des classes prédite par le RandomForestClassifier :")
+            st.image("Distribution des classes predites.png") 
+            st.write('Les classes moins fréquentes (F et G) présentent des difficultés plus importantes pour le modèle.')
+            st.write('Quelques prédictions du RandomForestClassifier (15 premières lignes) :')
+            st.image("Tableau des valeurs réelles et prédites.png")
 
-        st.write('### DecisionTreeClassifier')
-        col1, col2 = st.columns(2)
-        col1.metric("Score X_test", "0.5963221118196649")
-        col2.metric("Score X_train", "0.9997713664254686")
-
-        st.write('Classification Report & Matrice de Confusion du RandomForestClassifier')
-        st.image("Matrice de confusion et Classification Report.png")
-
-        st.write('Features Importances du RandomForestClassifier (20 premières fonctionnalités)')
-        st.image("FeatImportance.png")
-
-        st.write('#### Ajustement des hyperparamètres du RandomForestClassifier')   
-        col1, col2, col3, col4 = st.columns(4)
-        col1.metric("max_depth", "None")
-        col2.metric("min_samples_leaf", "1")
-        col3.metric("min_samples_split", "10")
-        col4.metric("n_estimators", "200")
-       
-        st.metric("Score X_test", "0.6778140293637847")
-        st.write("Le modèle RandomForest performe mieux sans limitation de la profondeur des arbres.")
-        st.write("L'optimisation des hyperparamètres a contribué à améliorer la performance du RandomForest par rapport à ses paramètres par défaut. Il semble mieux généraliser aux données non vues dans l'ensemble de test.")
-       
-        st.write('Classification Report & Matrice de Confusion du RandomForestClassifier aprés ajustement des hyperparaètres')
-        st.image("Matrice Confusion et Classification Report après optimisation.png")
-        st.write('Le modèle semble bien performant pour les classes A et B, mais a des difficultés avec les autres classes')
-        st.write('Défis potentiels dans la classification des classes moins fréquentes ou moins bien représentées.')
-        st.write("Rappel sur la distribution des classes de feu")
-        st.image("DistNormalClass.png")  
-        st.write("La distribution des classes prédite par le RandomForestClassifier")
-        st.image("Distribution des classes predites.png") 
-        st.write('Les classes moins fréquentes (F et G) présentent des difficultés plus importantes pour le modèle.')
-        st.write('Quelques prédictions du RandomForestClassifier')
-        st.image("Tableau des valeurs réelles et prédites.png")
-
-        st.write('## Autres modèles testés')
-        col1, col2, col3 = st.columns(3)
-        col1.metric("SVM : Score X_test", "0.6731054426812991")
-        col2.metric("Gradient Boosting : Score X_test", "0.6499147263829156")
-        col3.metric("knn : Score X_test", "0.6440753373869198")
+        # svm
+        elif selected_model == "SVM":
+            col1, col2, col3 = st.columns(3)
+            col1.metric("Score X_test", "0.6731054426812991")
+            
+            # Gradient Bosting 
+    
+        elif selected_model == "Gradient Boosting":
+            col1, col2, col3 = st.columns(3)
+            col1.metric("Score X_test", "0.6499147263829156")
+            
+            #  KNN
+    
+        elif selected_model == "knn":
+            col1, col2, col3 = st.columns(3)
+            col1.metric("Score X_test", "0.6440753373869198")
       
     with tab2:
-        st.write('## Tests Statistiques')
-        st.write('### ANOVA : Test de Kruskal-Wallis (Végétation régionale & Taille des feux)')
-        st.write("H0 : Il n'y a pas d'effet significatif de la végétation sur la Taille des feux")
-        col1, col2 = st.columns(2)
-        col1.metric("KruskalResult(statistic)", "97811.02482749475")
-        col2.metric("pvalue", "0.0")
-        st.write("On rejette H0 : Il y a un effet statistique significatif de la végétation sur la taille des feux")
-
-        st.write('### ANOVA : Test de Kruskal-Wallis (Cause & Taille des feux')
-        st.write("H0 : Il n'y a pas d'effet significatif de la cause sur la Taille des feux")
-        col1, col2 = st.columns(2)
-        col1.metric("KruskalResult(statistic)", "29011.246268456314")
-        col2.metric("pvalue", "0.0")
-        st.write("On rejette H0 : la cause des feux semble bien avoir un impact significatif sur la taille des feux : cas des causes naturelles en majorité dans le Sud Ouest et Nord Ouest")
-
-        st.write('### Corrélation : Test de Pearson (Précipitation moy. mens. & Taille des feux)')
-        st.write("H0 : Il n'y a pas de corrélation significative entre la précipitation et la Taille des feux")
-        col1, col2 = st.columns(2)
-        col1.metric("Corrélation de Pearson(précipitation moy.mens.)", "-0.02047855970785961")
-        col2.metric("pvalue", "3.49452e-207")
-        st.write("On rejette H0 : corrélation statistiquement significative entre Précipitation moy. mens. et Taille des feux, mais une corrélation négative très faible et proche de 0 (-0,02)")
-
-        st.write('### Corrélation : Test de Spearman (Précipitation moy. mens. & Taille des feux)')
-        st.write("H0 : Il n'existe pas de relation monotone significative entre la précipitation et la Taille des feux")
-        col1, col2 = st.columns(2)
-        col1.metric("Corrélation de Spearman", "0.15550443118114127")
-        col2.metric("pvalue", "0.0")
-        st.write("On rejette H0 : Le test de Spearman confirme qu’il existe bien une relation statistique significative entre ces 2 variables")
-        st.image("Relation entre precipitation et taille des feux.png")
-        st.image("Correlation entre preicipitation et taille feu.png")
-
-        st.write('### Corrélation : Test de Pearson (Température moy. mens. & Taille des feux')
-        st.write("H0 : Il n'y a pas de corrélation entre la Température moy.mens. et la Taille des feux")
-        col1, col2 = st.columns(2)
-        col1.metric("Corrélation de Pearson(température moy.mens.)", "0.011750792216244654")
-        col2.metric("pvalue", "1.61714208e-69")
-        st.write("On rejette H0 : Il existe une faible relation monotone entre la taille des feux et la température moyenne mensuelle. Même si la corrélation est statistiquement significative (p-value = 0), la variation de la température moyenne mensuelle ne semble pas expliquer d’une manière significative la taille des feux")
+        selected_test = st.radio("Sélectionnez un test", ["Kruskal-Wallis", 
+                                                      "Corrélation Pearson", 
+                                                      "Corrélation Spearman"])
+        if selected_test == "Kruskal-Wallis":
+            st.write("#### Végétation régionale & Taille des feux")
+            st.write("H0 : Il n'y a pas d'effet significatif de la végétation sur la Taille des feux.")
+            col1, col2 = st.columns(2)
+            col1.metric("KruskalResult(statistic)", "97811.02482749475")
+            col2.metric("pvalue", "0.0")
+            st.write("On rejette H0 : Il y a un effet statistique significatif de la végétation sur la taille des feux.")
+            st.write("#### Cause & Taille des feux")
+            st.write("H0 : Il n'y a pas d'effet significatif de la cause sur la Taille des feux.")
+            col1, col2 = st.columns(2)
+            col1.metric("KruskalResult(statistic)", "29011.246268456314")
+            col2.metric("pvalue", "0.0")
+            st.write("On rejette H0 : la cause des feux semble bien avoir un impact significatif sur la taille des feux : cas des causes naturelles en majorité dans le Sud Ouest et Nord Ouest.")
     
-
-        st.write('### Corrélation : Test de Spearman (Température moy. mens. & Taille des feux)')
-        st.write("H0 : Il n'existe pas de relation monotone significative entre la Température et la Taille des feux")
-        col1, col2 = st.columns(2)
-        col1.metric("Corrélation de Spearman", "-0.04421683488823663")
-        col2.metric("pvalue", "0.0")
-        st.write("On rejette H0 : Le test de Spearman confirme le rejet de notre hypothèse nulle selon laquelle il n’y a pas de corrélation entre ces 2 variables")
-        st.image("Relation entre température et taille des feux.png")
-        st.image("Correlation entre temperature et taille feu.png")
-
-        st.write("Plusieurs facteurs peuvent expliquer la taille des incendies (végétation, cause, précipitation moyenne, température")
+        
+    
+        elif selected_test == "Corrélation Pearson":
+            st.write("#### Précipitation moy. mens. & Taille des feux")
+            st.write("H0 : Il n'y a pas de corrélation significative entre la précipitation et la Taille des feux.")
+            col1, col2 = st.columns(2)
+            col1.metric("Corrélation de Pearson(précipitation moy.mens.)", "-0.02047855970785961")
+            col2.metric("pvalue", "3.49452e-207")
+            st.write("On rejette H0 : corrélation statistiquement significative entre Précipitation moy. mens. et Taille des feux, mais une corrélation négative très faible et proche de 0 (-0,02).")
+            st.write('#### Température moy. mens. & Taille des feux')
+            st.write("H0 : Il n'y a pas de corrélation entre la Température moy.mens. et la Taille des feux.")
+            col1, col2 = st.columns(2)
+            col1.metric("Corrélation de Pearson(température moy.mens.)", "0.011750792216244654")
+            col2.metric("pvalue", "1.61714208e-69")
+            st.write("On rejette H0 : Il existe une faible relation monotone entre la taille des feux et la température moyenne mensuelle. Même si la corrélation est statistiquement significative (p-value = 0), la variation de la température moyenne mensuelle ne semble pas expliquer d’une manière significative la taille des feux.")
+    
+        elif selected_test == "Corrélation Spearman" :
+            st.write('#### Précipitation moy. mens. & Taille des feux')
+            st.write("H0 : Il n'existe pas de relation monotone significative entre la précipitation et la Taille des feux.")
+            col1, col2 = st.columns(2)
+            col1.metric("Corrélation de Spearman", "0.15550443118114127")
+            col2.metric("pvalue", "0.0")
+            st.write("On rejette H0 : Le test de Spearman confirme qu’il existe bien une relation statistique significative entre ces 2 variables.")
+            st.image("Relation entre precipitation et taille des feux.png")
+            st.image("Correlation entre preicipitation et taille feu.png")
+    
+            st.write("#### Température moy. mens. & Taille des feux")
+            st.write("H0 : Il n'existe pas de relation monotone significative entre la Température et la Taille des feux.")
+            col1, col2 = st.columns(2)
+            col1.metric("Corrélation de Spearman", "-0.04421683488823663")
+            col2.metric("pvalue", "0.0")
+            st.write("On rejette H0 : le test de Spearman confirme le rejet de notre hypothèse nulle selon laquelle il n’y a pas de corrélation entre ces 2 variables.")
+            st.image("Relation entre température et taille des feux.png")
+            st.image("Correlation entre temperature et taille feu.png")
+    
+            st.write("Plusieurs facteurs peuvent expliquer la taille des incendies (végétation de la région, cause, précipitation moyenne, température moyenne).")
+    
 
 if page == pages[1] : 
 
