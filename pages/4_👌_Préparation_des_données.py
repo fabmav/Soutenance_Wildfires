@@ -41,27 +41,27 @@ page = st.sidebar.radio("Cliquez sur la partie à afficher", pages)
 
 st.write("## Préparation des données : complétude des données")
 
-    st.markdown(preprocessing[0])
-    st.markdown(preprocessing[1])
-    st.markdown(preprocessing[2])
-    st.markdown(preprocessing[3])
-    st.markdown(preprocessing[4])
+st.markdown(preprocessing[0])
+st.markdown(preprocessing[1])
+st.markdown(preprocessing[2])
+st.markdown(preprocessing[3])
+st.markdown(preprocessing[4])
 
-    st.divider()
-    st.markdown(preprocessing[5])
-    st.markdown(preprocessing[6])
-    st.markdown(preprocessing[7])
-    with st.expander("voir le code") : 
-        st.code(code_comte,language='python')
+st.divider()
+st.markdown(preprocessing[5])
+st.markdown(preprocessing[6])
+st.markdown(preprocessing[7])
+with st.expander("voir le code") :
+    st.code(code_comte,language='python')
     st.divider()
     st.markdown(preprocessing[8])
-    with st.expander("voir le code") : 
+with st.expander("voir le code") : 
         st.code(code_meteo,language='python')
         st.code(code_meteo_pt2,language='python')
-    st.divider()
-    st.markdown(preprocessing[9])
-    with st.expander("voir le code") : 
-        st.code(code_vegetation,language='python')
-        st.code(code_vegetation_pt2,language='python')
-    st.divider()
+st.divider()
+st.markdown(preprocessing[9])
+with st.expander("voir le code") :
+    st.code(code_vegetation,language='python')
+    st.code(code_vegetation_pt2,language='python')
+st.divider()
 
