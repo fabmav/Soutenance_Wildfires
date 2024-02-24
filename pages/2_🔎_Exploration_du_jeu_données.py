@@ -35,7 +35,7 @@ with open('code_example/code_vegetation part2.txt', 'r',encoding='UTF-8') as f:
 st.set_page_config(page_title="Présentation du jeu de données", page_icon="Fire_logo.png",)
 st.write("## Compréhension du jeu de données : première exploration")
 st.divider()
-st.image("https://www.fs.usda.gov/sites/default/files/users/user3824/Photos/CWDG/SweetCrk-Milepost2Fire-Marcus-Kauffman.jpg")
+st.image("https://www.fs.usda.gov/sites/default/files/users/user3824/Photos/CWDG/SweetCrk-Milepost2Fire-Marcus-Kauffman.jpg", width=200)
     
 display = st.radio('Que souhaitez-vous montrer ?', ('Head', 'Plot'))
 if display == 'Head' :
