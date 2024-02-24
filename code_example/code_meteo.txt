@@ -1,0 +1,40 @@
+import requests
+import os
+import json
+import pandas as pd
+from re import*
+from time import sleep
+from prod_weather_api_fonctions import *
+
+# la clé pour accéder à l'API
+key = "**********"
+# changer le dataid selon ses besoins.
+data_weather="PRCP"
+
+url_recherche = "https://www.ncei.noaa.gov/cdo-web/api/v2/data?"
+datasetid = "datasetid=GSOM"
+datatypeid1 = f'''datatypeid={data_weather}'''
+units = "units=metric"
+
+for i in range(2008,2021) :
+    startdate = f'''startdate={i}-01-01'''
+    enddate = f'''enddate={i}-12-31'''
+
+
+    df=pd.read_csv('US_states_data.csv',sep=";")
+    for state_id in df['id'].unique() :
+        print(state_id)
+        state_code = df['code'][df['id']==state_id].values[0]
+        locationid = f'''locationid={state_id}'''
+        url_requete=f'''{url_recherche}&{datasetid}&{locationid}&{datatypeid1}&{startdate}&{enddate}&{units}'''
+        print(url_requete)
+
+        x = get_count(url_requete,key)
+        print(x)
+
+        nom_fichier = f'''data_weather_wildfire_{data_weather}_{state_code}_{startdate}_{enddate}.txt'''
+        print(state_code)
+        print(nom_fichier)
+
+        api_call(url_requete,nom_fichier,x,key)
+        sleep(10)

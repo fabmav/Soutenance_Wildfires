@@ -1,0 +1,51 @@
+import pandas as pd
+import numpy as np
+import geopandas as gpd
+from shapely.geometry import Point
+from scipy.spatial.distance import cdist
+from time import time
+import os
+from math import sqrt
+
+df_vege=pd.read_csv('data_vegetation.csv')
+df_vege['longitude']=df_vege['longitude'].apply(lambda x : x-360)
+
+df=pd.read_csv('FPA_FOD_20221014_county.csv')
+
+
+def coordinates(x,y) :
+  return (x,y)
+
+df_vege['coordinates'] = df_vege.apply( lambda row : coordinates(row['longitude'],row['latitude']), axis=1)
+print('data upload ok')
+
+buffer = 10000
+compteur = 0
+
+while compteur < df.shape[0] :
+    df_temp=df.loc[compteur:compteur+buffer-1,:]
+
+    # Calculate Euclidean distance matrix
+    distance_matrix = cdist(df_temp[['LONGITUDE', 'LATITUDE']], df_vege[['longitude', 'latitude']])
+
+    # Find the index of the closest coordinate in B for each row in A
+    closest_index_B = distance_matrix.argmin(axis=1)
+    # Add the closest coordinate information to DataFrame A
+    df_temp['Closest_long_Vege'] = df_vege.loc[closest_index_B, 'longitude'].values
+    df_temp['Closest_lat_Vege'] = df_vege.loc[closest_index_B, 'latitude'].values
+    df_temp['COORDINATES_VEGE'] = df_temp.apply( lambda row : coordinates(row['Closest_long_Vege'],row['Closest_lat_Vege']), axis=1)
+    df_temp=df_temp.merge(df_vege[['dominant_vegetation','coordinates']],how='left',left_on='COORDINATES_VEGE',right_on='coordinates')
+
+    if compteur==0 :
+       df_new=df_temp
+    else :
+       df_new=pd.concat([df_new,df_temp],axis=0)
+
+    if compteur%100000==0 :
+       print(f'''{compteur} lignes traitées''')
+
+    compteur+=buffer
+
+print(df_new.shape,df.shape)
+
+df_new.to_csv('FPA_FOD_20221014_county_vege.csv')

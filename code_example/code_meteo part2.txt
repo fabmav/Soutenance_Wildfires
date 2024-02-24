@@ -1,0 +1,102 @@
+import pandas as pd
+import os
+chemin=os.path.join('C:','Users','Fabrice','Documents','Computer Science','04. Datascientest','WildFire','temp','PRCP','PRCP_1992')
+def chemin_acces(liste) :
+    output=""
+    for i in liste :
+        output=output+i+'/'
+    output=output[:-1]
+    return output
+
+liste_test = ['user','test']
+liste_test2= ['C:','Users','Fabrice','Documents','Computer Science','04. Datascientest','WildFire','temp','PRCP','PRCP_1992']
+liste_test3= ['C:','Users','Fabrice','Documents','Computer Science','04. Datascientest','WildFire','temp']
+liste_base= ['C:','Users','Fabrice','Documents','Computer Science','01. Python','Programmes Divers']
+
+type_data=['PRCP','TAVG']
+
+annee=[str(i) for i in range(1992,2021)]
+
+chemin=chemin_acces(liste_test3)
+
+print(os.getcwd())
+
+os.listdir(chemin)
+
+for j in type_data :
+    for k in annee :
+        end_path=j+'_'+k
+        path = chemin+'/'+j+'/'+end_path
+        print(os.listdir(path))
+
+compteur=0
+for j in type_data :
+    for k in annee :
+        end_path=j+'_'+k
+        path = chemin+'/'+j+'/'+end_path
+        for file in os.listdir(path) :
+            try :
+                file_path = path+'/'+file
+                df_temp = pd.read_csv(file_path,sep=";")
+                if compteur == 0 :
+                    df_new=df_temp
+                    compteur+=1
+                else :
+                    df_new=pd.concat([df_new,df_temp],axis=0)
+                    compteur+=1
+            except Exception as e :
+                print(f''' erreur de type {e}\n lié au fichier {file_path}\n statut compteur : {compteur}''')
+
+df_new_clean = df_new.drop_duplicates()
+os.chdir(chemin_acces(liste_base))
+df_new_clean.to_csv('data_meteo_mensuelle.csv')
+
+
+df_meteo = pd.read_csv('data_meteo_mensuelle.csv')
+df_meteo['key']=df_meteo['station'].apply(lambda x : x[6:])
+df_station = pd.read_csv('weather station.csv',sep=";")
+df_meteo=df_meteo.merge(df_station[['id','longitude','latitude','elevation','name','state']],how='left',left_on='key',right_on='id')
+
+df_meteo=df_meteo.dropna()
+
+df_meteo=df_meteo.drop(columns=['id','Unnamed: 0'])
+
+df_meteo.to_csv('data_meteo_mensuelle_complete.csv')
+
+df_meteo=pd.read_csv('data_meteo_mensuelle_complete.csv')
+
+df_meteo['date'] = pd.to_datetime(df_meteo['date'])
+df_meteo_grouped=df_meteo.groupby(['date','state','datatype']).mean().loc[:,['value']]
+
+df_meteo_grouped.reset_index(inplace=True)
+df_meteo_grouped = df_meteo_grouped.pivot(index=['state','date'],columns='datatype',values='value')
+df_meteo_grouped.head()
+
+df_meteo_grouped=df_meteo_grouped.sort_index()
+
+df_meteo_grouped['rolling_mean_3M_TAVG']=df_meteo_grouped['TAVG'].rolling(window=3).mean()
+df_meteo_grouped['rolling_mean_6M_TAVG']=df_meteo_grouped['TAVG'].rolling(window=6).mean()
+df_meteo_grouped['rolling_mean_3M_PRCP']=df_meteo_grouped['PRCP'].rolling(window=3).mean()
+df_meteo_grouped['rolling_mean_6M_PRCP']=df_meteo_grouped['PRCP'].rolling(window=6).mean()
+
+df_meteo_grouped.reset_index(inplace=True)
+
+df_meteo_grouped[df_meteo_grouped['state']=='AL'].head(12)
+
+df_meteo_grouped['month']=df_meteo_grouped['date'].dt.month
+
+df_meteo_grouped['year']=df_meteo_grouped['date'].dt.year
+
+df_data=pd.read_csv('FPA_FOD_20221014_county_vege.csv')
+
+df_data['DISCOVERY_DATE']=pd.to_datetime(df_data['DISCOVERY_DATE'])
+
+df_data['month']=df_data['DISCOVERY_DATE'].dt.month
+
+df_data=df_data.merge(df_meteo_grouped,how='left',left_on=['STATE','FIRE_YEAR','month'],right_on=['state','year','month'])
+
+df_data=df_data.drop(columns=['Unnamed: 0.1','Unnamed: 0','year','date','state','Closest_long_Vege','Closest_lat_Vege','COORDINATES_VEGE','coordinates'])
+
+df_data_test=df_data[(df_data['STATE']=='CA') & (df_data['FIRE_YEAR']==2019) & (df_data['month']==7)]
+
+df_data.to_csv('FPA_FOD_20221014_county_vege_monthlyweather.csv')

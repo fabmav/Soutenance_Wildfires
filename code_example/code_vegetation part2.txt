@@ -1,0 +1,33 @@
+import pandas as pd
+import requests as re
+import geopandas as gpd
+import json
+from bs4 import BeautifulSoup as bs
+
+url_base = 'https://water.usgs.gov/GIS/dsdl/ds240/index.html'
+url_requete = 'https://water.usgs.gov/GIS/dsdl/ds240'
+
+result = re.get(url=url_base)
+soup=bs(result.content,'html.parser')
+
+compteur = 0
+for fichier in soup.find_all('a') :
+  data = fichier.get('href')
+  if data[:9]=='polygon/g' :
+    url_fichier=url_requete+'/'+data
+    print(url_fichier)
+    try:
+      if compteur==0:
+        gdf=gpd.read_file(url_fichier)
+        compteur+=1
+      else :
+        print(url_fichier)
+        gdf_temp=gpd.read_file(url_fichier)
+        gdf = gpd.GeoDataFrame(pd.concat([gdf, gdf_temp], ignore_index=True), crs=gdf.crs)
+        compteur+=1
+        if compteur%10==0 :
+          print(f'''nombre de fichier traités : {compteur}\n taille du df :{gdf.shape}''')
+    except Exception as e :
+      print(f'''erreur de type {e}\n lié au fichier : {data}\n url {url_fichier}\n compteur :{compteur}''')
+
+gdf.to_file('vegetation_detailed.shp')
