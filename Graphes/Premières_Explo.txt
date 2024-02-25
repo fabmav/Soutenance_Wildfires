@@ -1,0 +1,61 @@
+
+
+---
+**Info sur le jeu de données**
+---
+
+Il s'agit d'une base de **données géographiques** des Feux de forêt aux États-Unis (https://www.firelab.org/project/us-wildfires) recensant principalement le nombre d'incendies et les zones brûlées.
+Les enregistrements proviennent de dizaines de bases de données disparates (ce qui explique la présence de plusieurs colonnes avec identifiants)
+Les données ont été vérifiées et purgées des dossiers redondants du même incendie
+"FFS Research Ecologist Karen Short acquired, standardized, error-checked, compiled, and evaluated the completeness of wildfire records for the period 1992-2020 from federal, state, and local wildfire reporting systems. The current release is the sixth update of a publication originally generated to support the national Fire Program Analysis (FPA) system"
+"While not part of the original fire reports, record identifiers that can be used to link to related wildfire data products, including a national dataset of satellite-derived fire perimeters and an operational situation-reporting dataset, were also included for a subset of the fires."
+
+Exemple ICS-209-Plus : recherche qui relie l'activité des feux à la météo... qui représente 187 160 rapports pour 35 170 incidents, dont 34 478 incendies de forêt
+
+Research-ready compilation of all-hazards operational data 1999-2020. These situation-reporting data can be used to relate large-fire activity to weather, fuel treatment activities, firefighting response, and a range of socioeconomic impacts.
+https://firelab.org/project/ics-209-plus
+
+Deux variables sont liées à la base MTBS spécialisée sur les grands feux
+
+
+---
+
+**Première exploration des données**
+
+
+
+---
+
+
+*  2 303 566 lignes/feux
+*  180 048 736 acres brûlés (soit 72 863 138 d'hectares)
+*  39 colonnes (float64(4), int64(4), object(31))
+  *   8 colonnes d'identifiant : dont certaines présentes des dates et des lieux
+  *   7 colonnes sources : dont certaines présentes des lieux
+  *   10 colonnes donnent des info sur les feux
+  *   7 colonnes liées à des dates
+  *   6 colonnes liées à des lieux
+  *   1 colonne shape (à comprendre ou pas?)
+
+Les données 'texte' sont propres (pas de mélange de Maj/Min) id pour dates (jeu de données déjà nettoyé)
+
+De nombreuses NA qui concernent les colonnes ID, noms, dates de fin du feu et lieux : exceptée pour la variable 'date de fin du feu' qui peut être problématique, ces données manquantes s'expliquent par le fait que ces variables sont des identifiants pour des sous-ensemble de données.
+*   17 variables présentent des données manquantes
+*   22 variables ne présentent pas de données manquantes
+
+
+Certaines variables catégorielles ont de nombreuses valeurs uniques (difficile à exploiter)
+
+Aucun doublon identifié
+
+Type de données cohérent avec la donnée.
+
+---
+
+
+
+
+
+
+
+

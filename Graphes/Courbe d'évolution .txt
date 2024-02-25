@@ -1,0 +1,44 @@
+Courbe d'évolution :
+- Le nombre et la taille de feux semblent décorrélés 
+- Le nombre de feux semble agir par "pics" :
+    - Dans les années 90, deux pics en 1994 et en 1996
+    - Dans les années 00, deux pics en 2000 et en 2006
+    - La décennie 2010 semble différente avec un pic en 2011, puis un pic de 3 ans de 2016 à 2018
+- L'évolution de la taille moyenne des feux ne suit pas toujours la même tendance, notamment lorsque le nombre de feu décroit fortement, la taille moyenne ne décroit pas de la même façon et inversement
+- Pour certaines années, le nombre de feux est plus bas que la moyenne avec une taille de feux très importantes (notamment 2012 et 2020 à voir avec les données sur les mégafeux)
+
+
+Evolution selon les régions :
+- Les incendies sont les plus fréquents dans les régions du sud même si cette prédominance semble s'atténuer au fil des années
+- Le Northwest semble faire face à des incendies de taille plus importante selon les années
+- Les incendies les plus grands semblent se situer sans le North Central et le Northwest
+- Pic important de surface brûlée en 2011 en South Central, en 2020 en Southwest alors que le Northwest et le NorthCentral font face à des pics réguliers (coordonnés)
+
+Evolution selon les causes :
+- Les feux humains sont beaucoup plus nombreux
+-Les feux naturels beaucoup plus grands
+- Les deux causes ont une part similaire dans la surface brûlée
+
+count    2.249242e+06
+mean     2.571365e+01
+std      8.764639e+02
+min      4.046860e-06
+25%      4.046860e-02
+50%      3.358894e-01
+75%      1.214058e+00
+max      2.681854e+05
+Name: taille_feu, dtype: float64
+
+
+count       952.000000
+mean      28950.536924
+std       29974.300411
+min       10005.861350
+25%       12967.859356
+50%       18605.438850
+75%       29787.722402
+max      268185.412200
+Name: taille_feu, dtype: float64
+
+Il y a : 952 mégafeux soit 0.04 % des feux du jeu de données 
+ surface brûlée par les mégafeux: 27560911.0 soit 48.0 %

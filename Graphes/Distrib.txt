@@ -1,0 +1,97 @@
+____________________________________________________________________________________________________________________
+Tri croisé Causes et classes avec autres variables catégorielles :
+
+Tri croisé cause : (Humaines 78.6- 14.3% Naturelles - 7% indéterminées)
+
+Les causes naturelles des feux se retrouvent plus fortement 
+- en région Northwest (47%), North Central (28%) et Southwest (23%)
+- Août (40%), Juillet(36%,), Juin(24%), sept(19%)
+- Classe de taille de feu : G(56%), F(42%), E(29%); A (21%) et D(20%)
+- Trimestre : 3ième (33%); très peu de feux sont découverts au 1er trimestre (1%) ou au 4ième trimestre(2%)
+- Les mégafeux ont à 61% des causes naturelles
+- Boreal_Evergreen_Needleleaf_Forest (60%), Boreal_Deciduous_Needleleaf_Forest (46%), Shrubland (44%)
+
+
+Les causes humaines sont plus représentées :
+- dans le Midwest(95%), Northeast(92%) et Southeast(%)
+- Janv (92%), Nov(91%), Déc(91%), Mars(91%), Avril(91%)
+- Classe de taille de feu : B(84%), C(82%)
+- Trimestre : 1er (91%) et 4ième (90%) ; 2ième (82%)
+- Temperate_Deciduous_Broadleaf_Forest(89%)	Cropland(88%), Grassland_or_Steppe (85%)
+
+La non spécification des causes est plus marquée :
+- Southwest
+
+Les variables avec une distribution des causes similaires à l'ensemble du jeu de données sont :
+- Le jour (Lundi ou mardi ou ...) de découverte du feux
+- La décennie
+
+
+
+Tri croisé classe :
+- Par rapport au mois :
+    - La classe A est plus représentée en juillet, Août
+    - La classe B de décembre à avril
+    - La classe C en février et mars
+    - La classe D en novembre et en mars
+    - La classe E, F et G en août
+
+- La région south-central constate le plus de feux de classe D à Grassland_or_Steppe
+- Variables avec distribution des classes similaires à l'ensemble 
+    -Le jour (Lundi ou mardi ou ...) de découverte du feux
+
+____________________________________________________________________________________________________________________
+Tri à plat des variables catégorielles (moins de 12 modalités sauf année) :
+- Sur-représentation des causes humaines (78,6%) contre 14.3% de causes naturelles. 7.2% des feux ont une cause indéterminées
+- Sur-représentation des feux de classes A à C (plus de 97%)
+- Sur-représentation des régions  (sud-est(33%), sud-ouest (18%), Sud-central (14%))
+- Les feux sont répartis de façon égale sur les différents jours de la semaine avec une proportion légèrement supérieur les samedi (15.9% et les dimanches (14.7%))
+- Proportionnellement plus fréquents en juillet (12.9%), en avril (12.5%), en mars (12.3% et en août (11%))
+- Les deux tiers des feux ont lieu au 2ième et 3ième trimestre
+- La dernière décennie (2001-2010) est la plus importante des 3 décennies avec respectivement (36.9%; 33.7% et 29.3%)
+- Cependant annuellement les années les plus représentées ne sont pas les dernières mais par ordre décroissant 2006, 2000, 2011, 2007, 1999
+- 3 types de végétations représentent plus de 70% des feux : Temperate-Evergreen-Boreal_Evergreen_Needleleaf_Forest (30%), Cropland (26%), Pastureland (14.5%)
+
+
+
+____________________________________________________________________________________________________________________
+Tri croisé Causes et classes avec autres variables catégorielles :
+
+Tri croisé cause : (Humaines 78.6- 14.3% Naturelles - 7% indéterminées)
+
+Les causes naturelles des feux se retrouvent plus fortement 
+- en région Northwest (47%), North Central (28%) et Southwest (23%)
+- Août (40%), Juillet(36%,), Juin(24%), sept(19%)
+- Classe de taille de feu : G(56%), F(42%), E(29%); A (21%) et D(20%)
+- Trimestre : 3ième (33%); très peu de feux sont découverts au 1er trimestre (1%) ou au 4ième trimestre(2%)
+- Les mégafeux ont à 61% des causes naturelles
+- Boreal_Evergreen_Needleleaf_Forest (60%), Boreal_Deciduous_Needleleaf_Forest (46%), Shrubland (44%)
+
+
+Les causes humaines sont plus représentées :
+- dans le Midwest(95%), Northeast(92%) et Southeast(%)
+- Janv (92%), Nov(91%), Déc(91%), Mars(91%), Avril(91%)
+- Classe de taille de feu : B(84%), C(82%)
+- Trimestre : 1er (91%) et 4ième (90%) ; 2ième (82%)
+- Temperate_Deciduous_Broadleaf_Forest(89%)	Cropland(88%), Grassland_or_Steppe (85%)
+
+La non spécification des causes est plus marquée :
+- Southwest
+
+Les variables avec une distribution des causes similaires à l'ensemble du jeu de données sont :
+- Le jour (Lundi ou mardi ou ...) de découverte du feux
+- La décennie
+
+
+
+Tri croisé classe :
+- Par rapport au mois :
+    - La classe A est plus représentée en juillet, Août
+    - La classe B de décembre à avril
+    - La classe C en février et mars
+    - La classe D en novembre et en mars
+    - La classe E, F et G en août
+
+- La région south-central constate le plus de feux de classe D à Grassland_or_Steppe
+- Variables avec distribution des classes similaires à l'ensemble 
+    -Le jour (Lundi ou mardi ou ...) de découverte du feux
