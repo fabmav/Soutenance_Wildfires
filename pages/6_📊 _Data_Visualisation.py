@@ -116,6 +116,6 @@ if page == pages[2] :
     st.write("## Temporelle")
     st.write('###Titre')
     st.write('blablabla')
-    st.image("Variable_année.png", width=1100)
+        st.image("Graphes/Variable_année.png", width=1100)
     st.divider()
 
