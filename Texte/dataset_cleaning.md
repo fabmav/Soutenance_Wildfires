@@ -9,7 +9,7 @@ les principales étapes du pre processing ont été les suivantes :
     Nous avons envisagé au début de l'analyse de nous intéresser à la durée des incendies. Cependant la variable "fin de l'incendie" présentait elle aussi trop de na pour être exploitable. Nous n'avons pas non plus pu corréler ces na à un facteur précis (source de l'info, période spécifique etc...). Nous avons au final également supprimé cette colonne
 ---
 3. :red[**Périmètre d'analyse**] : 
-    Nous avons supprimé les donnés qui ne correspondaient pas aux états contigues américains (Alaska, Hawaï et Puerto Rico). Nous avons en effet estimé que ces territoires avaient leurs problématiques spécifiques.
+    Nous avons supprimé les donnés qui ne correspondaient pas aux états contigües américains (Alaska, Hawaï et Puerto Rico). Nous avons en effet estimé que ces territoires avaient leurs problématiques spécifiques.
 ---
 4. :red[**transformations usuelles**] : 
     mise au format des champs de date, conversions des données numériques en valeur métrique etc...
