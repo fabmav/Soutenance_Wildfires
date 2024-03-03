@@ -66,7 +66,7 @@ if page == pages[0] :
             st.image("Tableau des valeurs réelles et prédites.png")
             st.write('#### Rééquilibrage de classe : <span style="color:blue;">SMOTE</span>', unsafe_allow_html=True)
             st.write("<span style='color:blue;'>Synthetic Minority Over-sampling Technique :</span> Technique de suréchantillonnage des minorités synthétiques :", unsafe_allow_html=True)
-             st.write("L'objectif principal de SMOTE est de générer des exemples synthétiques de la classe minoritaire, de manière à équilibrer le nombre d'exemples entre les classes.")
+            st.write("L'objectif principal de SMOTE est de générer des exemples synthétiques de la classe minoritaire, de manière à équilibrer le nombre d'exemples entre les classes.")
 
         # svm
         elif selected_model == "SVM":
