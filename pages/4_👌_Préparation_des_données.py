@@ -7,7 +7,7 @@ import seaborn as sns
 import pickle
 
 # les fichiers dont on a besoin pour l'appli
-with open('head.pkl', 'rb') as f:
+with open('Pickle/head.pkl', 'rb') as f:
     df_head = pickle.load(f)
 with open('Pickle/data_na.pkl', 'rb') as f:
     data_na = pickle.load(f)
@@ -37,16 +37,14 @@ with open('code_example/code_vegetation part2.txt', 'r',encoding='UTF-8') as f:
     
 st.set_page_config(page_title="Présentation du jeu de données", page_icon="Fire_logo.png")
 
-pages=["Nettoyage et sélection","Web Scrapping"]
+with st.expander("voir le dataset finalisé") :
+    st.write(df_head)
+st.divider()
 
-page = st.sidebar.radio("Cliquez sur la partie à afficher", pages)
-
-
-st.write("## Préparation des données : complétude des données")
 st.markdown(pres[0])
 with st.expander("voir les champs du dataset d'origine") :
     st.write(df_data)
-st.divider()
+
 st.markdown(pres[1])
 with st.expander("voir Nan du dataset d'origine") :
     st.write(data_na)
