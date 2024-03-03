@@ -11,6 +11,9 @@ if page == pages[0] :
     tab1, tab2= st.tabs(["Modèles de classification","Tests Statistiques"])
     with tab1:
          # Boutons pour chaque modèle
+        st.write('##### Dataset : <span style="color:red;">[2018, 2019, 2020]</span>', unsafe_allow_html=True)
+        st.write('**Proportion du jeu de test :** <span style="color:red;">**25%**</span>', unsafe_allow_html=True)
+        test_size_percentage = st.slider("Le pourcentage du jeu de test", 20, 30, 25)
         selected_model = st.radio("Sélectionnez un modèle", ["LogisticRegression", "DecisionTreeClassifier", "RandomForestClassifier", "SVM", "Gradient Boosting", "knn"])
 
         if selected_model == "LogisticRegression":
@@ -39,7 +42,7 @@ if page == pages[0] :
             st.image("FeatImportance.png")
     
             # Ajustement des hyperparamètres
-            st.write('#### Ajustement des hyperparamètres du RandomForestClassifier :')   
+            st.write('#### Ajustement des hyperparamètres du RandomForestClassifier : <span style="color:blue;">Grid Search</span>', unsafe_allow_html=True)   
             col1, col2, col3, col4 = st.columns(4)
             col1.metric("max_depth", "None")
             col2.metric("min_samples_leaf", "1")
@@ -61,6 +64,9 @@ if page == pages[0] :
             st.write('Les classes moins fréquentes (F et G) présentent des difficultés plus importantes pour le modèle.')
             st.write('Quelques prédictions du RandomForestClassifier (15 premières lignes) :')
             st.image("Tableau des valeurs réelles et prédites.png")
+            st.write('#### Rééquilibrage de classe : <span style="color:blue;">SMOTE</span>', unsafe_allow_html=True)
+            st.write("<span style='color:blue;'>Synthetic Minority Over-sampling Technique :</span> Technique de suréchantillonnage des minorités synthétiques :", unsafe_allow_html=True)
+             st.write("L'objectif principal de SMOTE est de générer des exemples synthétiques de la classe minoritaire, de manière à équilibrer le nombre d'exemples entre les classes.")
 
         # svm
         elif selected_model == "SVM":
