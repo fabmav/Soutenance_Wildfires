@@ -14,6 +14,11 @@ Il nous a également fallu apprendre à maîtriser des modules non étudiés dan
 * obtenir des données sur la démographie : la pression démographique a un impact sur l'occupation des territoires.
 * obtenir des données sur les moyens disponibles de lutte contre les incendies : budget des pompiers par états, proximité de la station de pompier la plus proche d'un départ d'incendie...
 
+:red[**Modélisation**] :
+* travailler le ré-équilibrage des classes avec SMOTE
+* utiliser d'autres modèles de Time Series (comme ARIMA et/ou SARIMA etc)
+
+
 :red[**Actualités**] :\
 A la date de cette soutenance, le Texas connaît, depuis fin février 2024, le plus grand incendie de son histoire et le deuxième plus grand des Etats-Unis. Il a déjà brûlé plus de 430 000 hectares et n'est pas encore contenu.
 A titre de comparaison, le plus grand incendie ayant commencé en février dans notre dataset date de 2088 et ne faisait "que" 89 000 hectares. La cause de l'incendie est encore en cours d'invesigation.\

@@ -11,8 +11,7 @@ Nous avons pu, à travers l'étude d'un dataset contenant des données sur les f
     - 2,2 millions de feux de forêt répertoriés dans la base.
     - 58 millions d'hectares brûlés sur 30 ans.
     - la surface brulée augmente d'environ 47% par décennie.
-    - 0.04% des incendies font plus de 10 000 ha et représentent à eux seuls 
-    48% de la surface brulée.
+    - 0.04% des incendies font plus de 10 000 ha et représentent à eux seuls 48% de la surface brulée.
 
 L'évolution de la surface brulée ainsi que le fait qu'un petit nombre d'incendies puissent avoir un tel impact nous a interpelé. :red[**Ces chiffres nous ont incité à orienter notre travail l'analyse et la prédiction de la taille des incendies.**]
 

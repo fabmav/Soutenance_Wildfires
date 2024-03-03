@@ -75,7 +75,7 @@ if page == pages[0] :
          # Boutons pour chaque modèle
         st.write('##### Dataset : <span style="color:red;">[2018, 2019, 2020]</span>', unsafe_allow_html=True)
         st.write('**Proportion du jeu de test :** <span style="color:red;">**25%**</span>', unsafe_allow_html=True)
-        test_size_percentage = st.slider("Le pourcentage du jeu de test", 20, 30, 25)
+
 
 
         col1, col2, col3 = st.columns([2,2,2])
@@ -180,15 +180,14 @@ if page == pages[1] :
     st.write('La prédiction, qui commence en 2021 sur ce graphique, montre des feux en croissance régulière, mais constante.')
 
     st.write('On peut vérifier les tendances et la saisonnalité en affichant les composantes de la prédiction.')
-
-    st.image('Composantes de la prédiction.png')
+    with st.expander('Voir graphique des composantes') :
+        st.image('Composantes de la prédiction.png')
 
     st.write('Le premier graphique montre que la tendance est croissante. Le deuxième graphique indique que les feux sont constants et plus fréquents en avril et en juillet, ce qui confirme nos premières observations.')
 
     st.write('Les change points (points de changements) sont les points dans le temps où les séries temporelles présentent des changements abrupts dans la trajectoire.')
-
-
-    st.image('Première prédiction avec change points.png', caption = 'Première prédiction avec change points' )
+    with st.expander('Voir les Tendances avec change points') :
+        st.image('Première prédiction avec change points.png', caption = 'Première prédiction avec change points' )
 
     st.write('Premières métriques')
     col1, col2, col3, col4 = st.columns(4)
