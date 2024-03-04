@@ -14,7 +14,7 @@ Les principales étapes du pre processing ont été les suivantes :
 4. :red[**transformations usuelles**] : 
     Mise au format des champs de date, conversions des données numériques en valeur métrique etc...
 ---
-## Ajout de donnée : 
+## Ajout de données : 
 
 Nous avons rapidement constaté que le jeu de donnée ne contenait aucune donnée météorologique ni sur la végétation. Par ailleurs, les données géographiques étaient incomplètes : il manquait certains noms de comtés, enfin, il nous a semblé utile de regrouper les états par grandes régions pour simplifier les analyses
 ---
