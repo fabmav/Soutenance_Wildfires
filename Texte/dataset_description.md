@@ -17,7 +17,7 @@ L'évolution de la surface brulée ainsi que le fait qu'un petit nombre d'incend
 
 
 Nous avons organisé notre travail de la façon suivante : 
-* Analyse du jeu de donnée brut
+* Analyse du jeu de données brut
 * Nettoyage du dataset d'origine et ajout de données complémentaires
 * Dataviz & statistiques
 * Machine Learning
