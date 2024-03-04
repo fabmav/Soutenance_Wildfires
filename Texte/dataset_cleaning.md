@@ -1,4 +1,4 @@
-## Nettoyage du jeu de donnée : 
+## Nettoyage du jeu de données : 
 
 Les principales étapes du pre processing ont été les suivantes : 
 ---
