@@ -16,7 +16,7 @@ Les principales étapes du pre processing ont été les suivantes :
 ---
 ## Ajout de donnée : 
 
-Nous avons rapidement constaté que le jeu de donnée ne contenait aucune donnée météorologique ni sur la végétation. Par ailleurs, les données géographiques étaient incomplètes : il manquait certains nom de comtés, enfin, il nous a semblé utile de regrouper les états par grandes régions pour simplifier les analyses
+Nous avons rapidement constaté que le jeu de donnée ne contenait aucune donnée météorologique ni sur la végétation. Par ailleurs, les données géographiques étaient incomplètes : il manquait certains noms de comtés, enfin, il nous a semblé utile de regrouper les états par grandes régions pour simplifier les analyses
 ---
 1. :red[**les régions**] : 
     Nous avons utilisé la carte disponible [ici]( https://www.usgs.gov/programs/climate-adaptation-science-centers/casc-network-and-region-maps#:~:text=The%20CASCs%20are%20divided%20into,%2C%20South%20Central%2C%20and%20Southeast) pour regrouper les états américains par région.
@@ -27,9 +27,10 @@ Nous avons rapidement constaté que le jeu de donnée ne contenait aucune donné
 ---
 3. :red[**La Météo**] : 
     Le but était d'ajouter au dataset des informations sur les précipitations et la température moyenne à la date du déclenchement de l'incendie.
-    L'hypothèse étant que ces données ont une influence sur l'occurrence et la taille des incendies.\
-    Il eût été possible d'extraire plus d'informations (vent, humidité de l'air etc...). Cependant la quantité de donnée à extraire, et les temps de calculs nous ont semblé trop importants.\
-    Nous sommes passé par l'api des services météo us. La difficulté a été de gérer la quantité de donnée généré (temps de calcul et déconnexions régulière de l'api).\
+    L'hypothèse étant que ces données exercent une influence sur l'occurrence et la taille des incendies.\
+    Nous sommes passé par l'api des services météo us. La source des données est [disponible ici](https://www.ncei.noaa.gov/access).\
+    Il eût été possible d'extraire plus d'informations (vent, humidité de l'air etc.), cependant la quantité de donnée à extraire, et les temps de calculs nous ont semblé trop importants.\
+     La difficulté a été de gérer la quantité de donnée généré (temps de calcul et déconnexions régulière de l'api).\
     Les données extraites correspondaient à des stations météo dont les coordonnées géographiques étaient renseignées. A partir de là, il était possible avec GeoPandas de trouver le point 
 
 ---

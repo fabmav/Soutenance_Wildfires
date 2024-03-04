@@ -2,7 +2,7 @@
 
 Le jeu de donnée initial comportait 38 colonnes. Elles contenaient les informations suivantes : 
 
-1. :red[**Des identifiants**] : ils permettent de retrouver quel agence à déclaré l'incendie, quel nom a été ou id lui a été donné.
+1. :red[**Des identifiants**] : ils permettent de retrouver quel agence a déclaré l'incendie, quel nom a été ou id lui a été donné.
 
 2. :red[**Les dates**] : date de début de l'incendie, date de maîtrise de l'incendie.
 
