@@ -18,6 +18,10 @@ with open("stat_méga.pkl", "rb") as fichier_pickle:
 with open("Texte/Dispersions.md", "r", encoding="utf-8") as fichier_markdown:
     Com_Dispersions = fichier_markdown.read()
 
+with open("Texte/Taille_classe_Ha.md", "r", encoding="utf-8") as fichier_markdown:
+    Taille_Classes = fichier_markdown.read()
+
+
 st.set_page_config(page_title="Data Visualisation", page_icon="Fire_logo.png",)
 pages=["Data Viz' générale","Data Viz' régionale","Data Viz' temporelle", "Focus sur les Mégafeux"]
 
@@ -70,6 +74,9 @@ if page == pages[0]:
         col3.markdown("   ")
         col3.markdown("   ")
         col3.markdown("### 0.18% des feux = + de 2020 Ha mais représentent 70% de la surface brûlée")
+        checkbox7 = st.checkbox("Taille des classes de feu")
+        if checkbox7 :
+            st.markdown(Taille_Classes, unsafe_allow_html=True)    
         st.divider()
         col1, col2, col3 = st.columns([1,2,1])
         col1.markdown("   ")
@@ -110,15 +117,21 @@ if page == pages[0]:
             col1, col2, col3 = st.columns([1,2,1])
             col1.write("")
             col2.image("Graphes/Variable_vegetation.png",width=700)
+# Case graphe etat
+        checkbox = st.checkbox("Etats (% Nbre Vs % Surface)")
+        if checkbox:
+            col1, col2, col3 = st.columns([1,2,1])
+            col1.markdown("Texas 180K feux et 4,8 m°d'ha")
+            col2.image("Graphes/Etat_Nb_Surf.png",width=1000)
 
 if page == pages[1] :
 
     st.write("## Relation entre nombre de feux et données géographiques")
-    st.write("Les régions Southeast et Southwest représentent le plus grand nombres de feux entre 1992 et 2020.") 
+    st.write("Les régions Southeast et Southwest représentent le plus grand nombre de feux entre 1992 et 2020.") 
     st.divider()
     st.image("Nombre_de_Feux_par_Régions.gif")
     st.divider()
-    st.write('Cette carte affiche les mégafeux principalement situés à l’ouest du continent. ils sont liés a des cause Naturelles')
+    st.write('Cette carte affiche les mégafeux principalement situés à l’ouest du continent : ils sont liés à des causes naturelles')
     st.divider()
     st.image("Carto_Megafeux.png")
     st.divider()
@@ -133,7 +146,7 @@ if page == pages[1] :
     st.image("Moy_Taille_Feu_par_Veget.png")
     st.divider()
     st.write("## Relation entre cause et taille des feux")
-    st.write("La taille des feux augmente significativement jusqu’en 2006 et reste stable jusqu’en 2020. La cause Natural est la plus importante depuis 2006.")
+    st.write("La taille des feux augmente significativement jusqu’en 2006 et reste stable jusqu’en 2020. La cause 'Natural' est la plus importante depuis 2006.")
     st.divider()
     st.image("Relation_cause_taille_feux_par_année.png")
     
@@ -232,23 +245,41 @@ if page == pages[2] :
         if checkbox1:
             col1, col2 = st.columns([1,2])
             col1.markdown("   ")
-            col1.markdown("### Les feux de classe G sont presque deux fois moins présents dans les années 90 que durant la dernière décade avec respectivement 24 et 43% ")
-            col2.image("Graphes/Tri_Classe_Décennie.png", width=900)
+            col1.markdown("   ")
+            col1.markdown("   ")
+            col1.markdown("   ")
+            col1.markdown("   ")
+            col1.markdown("   ")
+            col1.markdown("   ")
+            col1.markdown("#### Les feux de classe G sont presque deux fois moins présents dans les années 90 que durant la dernière décade avec respectivement 24 et 43% ")
+            col2.image("Graphes/Tri_Classe_Décennie.png", width=700)
 
          # Case graphe Décennie et Mégafeux
         checkbox2 = st.checkbox("Décennie et Mégafeux")
         if checkbox2:
             col1, col2 = st.columns([1,2])
             col1.markdown("   ")
-            col1.markdown("### Les mégafeux sont relativement moins importants dans les années 1992 et 2000 et beaucoup plus au cours de la dernière décennie")
-            col2.image("Graphes/Tri_Méga_Décennie.png",width=900)
+            col1.markdown("   ")
+            col1.markdown("   ")
+            col1.markdown("   ")
+            col1.markdown("   ")
+            col1.markdown("   ")
+            col1.markdown("   ")
+            col1.markdown("#### Les mégafeux sont relativement moins importants dans les années 1992 et 2000 et beaucoup plus au cours de la dernière décennie")
+            col2.image("Graphes/Tri_Méga_Décennie.png",width=700)
         
         # Case graphe Décennie Région
         checkbox3 = st.checkbox("Décennie et Région")
         if checkbox3:
-            col1, col2, col3 = st.columns([1,2,1])
-            col1.markdown("### Régionnalement le 'Southeast est plus représenté dans les années 90's et moins lors de la dernière décennie. Nous constatons exactement l'inverse dans le Norh Central qui est plus présent dans les années 2011-2020 ")
-            col2.image("Graphes/Tri_Région_Décennie.png", width=900)
+            col1, col2 = st.columns([1,2])
+            col1.markdown("   ")
+            col1.markdown("   ")
+            col1.markdown("   ")
+            col1.markdown("   ")
+            col1.markdown("   ")
+            col1.markdown("   ")
+            col1.markdown("#### Régionnalement le 'Southeast est plus représenté dans les années 90's et moins lors de la dernière décennie. Nous constatons exactement l'inverse dans le Norh Central qui est plus présent dans les années 2011-2020 ")
+            col2.image("Graphes/Tri_Région_Décennie.png", width=700)
 
 
 if page == pages[3] :
@@ -267,11 +298,24 @@ if page == pages[3] :
     st.divider()
 
     col1, col2, col3 = st.columns([1,1,1])
-    col1.image("Graphes/Cause_mégafeux_NB.png",width=450)
-    col2.image("Graphes/Trimestre_mégafeu_NB.png",width=450)
-    col3.image("Graphes/Décennie_Mégafeu_NB.png",width=450)
+    col1.image("Graphes/Cause_mégafeux_NB.png",width=300)
+    col2.image("Graphes/Trimestre_mégafeu_NB.png",width=300)
+    col3.image("Graphes/Décennie_Mégafeu_NB.png",width=300)
     st.divider()
 
+# Case graphe région
+    checkbox = st.checkbox(" Mégafeux Régions")
+    if checkbox:
+        col1, col2, col3 = st.columns([1,2,1])
+        col1.write("")
+        col2.image("Graphes/Région_mégafeu.png",width=700)
+
+# Case graphe etat
+    checkbox = st.checkbox(" Mégafeux Etats")
+    if checkbox:
+        col1, col2, col3 = st.columns([1,2,1])
+        col1.write("Focus sur Texas 55 mégafeux et 1,8 m°d'ha")
+        col2.image("Graphes/Etat_Nb_Surf.png",width=700)
 
 # Case graphe Mégafeux
     checkbox4 = st.checkbox("Mégafeux Mois")
