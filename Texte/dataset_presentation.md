@@ -1,6 +1,6 @@
-## Présentation du jeu de donnée : 
+## Présentation du jeu de données : 
 
-Le jeu de donnée initial comportait 38 colonnes. Elles contenaient les informations suivantes : 
+Le jeu de données initial comportait 38 colonnes. Elles contenaient les informations suivantes : 
 
 1. :red[**Des identifiants**] : ils permettent de retrouver quel agence a déclaré l'incendie, quel nom a été ou id lui a été donné.
 
