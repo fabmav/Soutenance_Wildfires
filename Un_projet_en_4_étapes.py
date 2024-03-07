@@ -23,5 +23,8 @@ col1.write("")
 col2.image("logofs.gif")
 col3.write("© Short, Karen C. 2022. Spatial wildfire occurrence data for the United States, 1992-2020 [FPA_FOD_20221014]. 6th Edition. Fort Collins, CO: Forest Service Research Data Archive. https://doi.org/10.2737/RDS-2013-0009.6")
 col4.write("")
-
 st.divider()
+
+st.markdown("<h1 style='text-align: center ;' > Un projet réalisé par une équipe complémentaire </h2> " , unsafe_allow_html=True)
+st.write("")
+st.markdown("<h3 style='text-align: center;'>Alpha BARRY ➕ Alexandre GUERRIERI ➕ Katy LEBRUN ➕ Fabrice MAVOUNGOU ➕ Nathalie MOUTREUX-BRISSAUD</h3>", unsafe_allow_html=True)
