@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.set_page_config(page_title="Modélisation", page_icon="Fire_logo.png",)
+st.set_page_config(page_title="Modélisation", page_icon="Fire_logo.png",layout="wide",)
 
 pages=["Classification","Time Series"]
 page = st.sidebar.radio("Cliquez sur la partie à afficher", pages)

@@ -13,7 +13,7 @@ with open('Pickle/head.pkl', 'rb') as f:
 with open('Texte/dataset_description.md', 'r',encoding='UTF-8') as f:
     desc = f.read()
   
-st.set_page_config(page_title="Présentation du jeu de données", page_icon="Fire_logo.png",)
+st.set_page_config(page_title="Présentation du jeu de données", page_icon="Fire_logo.png",layout="wide",)
 st.write("## Présentation du projet")
 st.divider()
 st.image("https://www.fs.usda.gov/sites/default/files/users/user3824/Photos/CWDG/SweetCrk-Milepost2Fire-Marcus-Kauffman.jpg", width=200)

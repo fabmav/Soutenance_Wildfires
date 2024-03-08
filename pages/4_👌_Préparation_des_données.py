@@ -35,7 +35,7 @@ with open('code_example/code_vegetation.txt', 'r',encoding='UTF-8') as f:
 with open('code_example/code_vegetation part2.txt', 'r',encoding='UTF-8') as f:
     code_vegetation_pt2= f.read()
     
-st.set_page_config(page_title="Présentation du jeu de données", page_icon="Fire_logo.png")
+st.set_page_config(page_title="Présentation du jeu de données", page_icon="Fire_logo.png", layout="wide",)
 
 with st.expander("voir le dataset finalisé") :
     st.write(df_head)

@@ -1,8 +1,9 @@
 import streamlit as st
-
-st.set_page_config(page_title="Analyse des feux de forêts aux USA", page_icon="Fire_logo.png",)
-
-
+st.set_page_config(
+    page_title="Analyse des feux de forêts aux USA",
+    page_icon="Fire_logo.png",
+    layout="wide",  
+)
 
 col1, col2, col3= st.columns([1,10,1])
 col1.write("")

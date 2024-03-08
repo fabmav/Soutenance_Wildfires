@@ -22,7 +22,7 @@ with open("Texte/Taille_classe_Ha.md", "r", encoding="utf-8") as fichier_markdow
     Taille_Classes = fichier_markdown.read()
 
 
-st.set_page_config(page_title="Data Visualisation", page_icon="Fire_logo.png",)
+st.set_page_config(page_title="Data Visualisation", page_icon="Fire_logo.png",layout="wide",)
 pages=["Data Viz' générale","Data Viz' régionale","Data Viz' temporelle", "Focus sur les Mégafeux"]
 
 page = st.sidebar.radio("Cliquez sur la partie à afficher", pages)
