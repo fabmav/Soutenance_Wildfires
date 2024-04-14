@@ -29,7 +29,7 @@ Team members are :
 - Nathalie MOUTREUX-BRISSAUD
 
 -------
-
-<p1>**L'ONU prédit une hausse du nombre de feux de forêt de 50% d'ici 2100**</p1>
+[!CAUTION]
+**L'ONU prédit une hausse du nombre de feux de forêt de 50% d'ici 2100**
 
 Ce repo présente un projet de data science sur les feux de forêts aux Etats-Unis. Le but du projet  
